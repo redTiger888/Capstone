@@ -1,15 +1,16 @@
 # Importing the Libraries
 import warnings
-# Suppress all warnings
-warnings.filterwarnings("ignore")
 import logging
-
-# Suppress warning messages from NativeCodeLoader
-logging.getLogger("org.apache.hadoop.util.NativeCodeLoader").setLevel(logging.ERROR)
-
 import pyspark
 from pyspark.sql import SparkSession
-import config
+from datetime import datetime
+import config  # Contains user and password for MySQL
+
+warnings.filterwarnings("ignore") # Suppress specific warnings
+logging.basicConfig(level=logging.WARN) # Set the logging level
+
+# Configure logging
+logging.basicConfig(filename='transaction_module.log', format='%(asctime)s - %(message)s', level=logging.INFO)
 
 # Function to Prompt user to enter Zip code and verify format
 def get_zipcode():
@@ -26,24 +27,35 @@ def get_zipcode():
 def get_month_year():
     while True:
         month = input("Enter Month (1-12): ").strip()
+        
+        # Verify month is between 1 & 12
+        if month.isdigit() and 1 <= int(month) <= 12:
+            break  # Valid month, exit loop
+        else:
+            print("Invalid input. Please enter a valid month (1-12)!")
+    
+    while True:
         year = input("Enter Year (for example: 2024): ").strip()
         
-        # Verify month is between 1 & 12 and year has 4 digits
-        if (month.isdigit() and 1 <= int(month) <= 12) and (year.isdigit() and len(year) == 4):
-            return int(month), int(year)
+        # Verify year has 4 digits
+        if year.isdigit() and len(year) == 4:
+            break  # Valid year, exit the loop
         else:
-            print("Invalid input. Please enter a valid month (1-12) and 4-digit numeric year.")
+            print("Invalid input. Please enter a valid 4-digit numeric year!")
+        
+    return int(month), int(year)
 
-#Function to make a query the sql database based on the user entered zip code, month and year
+# Function to query the MySQL database based on user input
 def query_transactions(zip_code, month, year, spark):
-    #JDBC parameters
+    # JDBC parameters
     jdbc_url = "jdbc:mysql://localhost:3306/creditcard_capstone"
-    
+
     dbtable_query = f'''(SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
-                    TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", cust.LAST_NAME AS "Last Name"
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
                     FROM cdw_sapp_credit_card cc
                     JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
-                    WHERE cc.month = {month} AND cc.year = {year} AND cust_zip = {zip_code}
+                    WHERE cc.month = {month} AND cc.year = {year} AND cust_zip = '{zip_code}'
                     ORDER BY day DESC) AS filtered_transactions'''
     
     user = config.user
@@ -58,16 +70,26 @@ def query_transactions(zip_code, month, year, spark):
             .option("password", password) \
             .load()
 
+         # Logging successful query of transactions with timestamp
+        logging.info("Query ran successful at %s.", {dbtable_query}, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+
         return df
 
     except Exception as e:
         print(f"Error querying data: {str(e)}")
+        # Logging successful query of transactions with timestamp
+        logging.error(f"Error querying data: {str(e)} at %s.", {dbtable_query}, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+
         return None
 
-#The master function that pulls all the transaction details by calling the above functions
+# Master function to orchestrate the transaction detail retrieval
+    # Prompts the user for zip code, month, and year
+    # Calls query_transactions() to fetch data based on user input
+    # Displays the retrieved data if successful; otherwise, shows an error message.
 def get_transaction_detail(spark):
-    zip_code = get_zipcode()
-    month, year = get_month_year()
+    zip_code = get_zipcode() 
+    month, year = get_month_year() 
+
     df = query_transactions(zip_code, month, year, spark)
 
     if df is not None:
@@ -75,19 +97,15 @@ def get_transaction_detail(spark):
     else:
         print("No data retrieved or error occurred.")
 
-   
+# Main 
 if __name__ == "__main__":
     # Creating Spark Session
-    # spark = SparkSession.builder.appName('Query Transactions').getOrCreate()
     spark = SparkSession.builder \
-    .appName('Query Transactions') \
-    .config('spark.eventLog.gcMetrics.youngGenerationGarbageCollectors', 'G1 Young Generation') \
-    .config('spark.eventLog.gcMetrics.oldGenerationGarbageCollectors', 'G1 Old Generation') \
-    .config('spark.executor.extraJavaOptions', '-Djava.library.path=/path/to/native/libraries') \
-    .getOrCreate()
+        .appName('Query Transactions') \
+        .getOrCreate()
 
-    get_transaction_detail(spark)
-
-    # Stop Spark session after usage
-    spark.stop()
-
+    try:
+        get_transaction_detail(spark)
+    finally:
+        # Stop Spark session
+        spark.stop()
