@@ -183,10 +183,6 @@ def transform_credit_card(credit_df):
         print(f"Error occurred: {str(e)}")
         raise
 
-
-
-
-
 # Function that creates a new database
 def create_database(host, user, password, database_name):
     try:
@@ -227,7 +223,6 @@ def create_database(host, user, password, database_name):
              # Log closing MYSQL connection
             logging.info(f"MySQL connection is closed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
-
 # Function that loads data to db: creditcard_capstone
 def load_to_mysql(dataframe, table_name):
     try:
@@ -238,7 +233,7 @@ def load_to_mysql(dataframe, table_name):
             .option("user", config.user) \
             .option("password", config.password) \
             .save()
-        
+
         # Logging successful loading with timestamp
         logging.info("Data loaded into MySQL table %s successful at %s.", table_name, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         
