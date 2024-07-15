@@ -1,0 +1,37 @@
+2024-07-14 23:51:55,318 - INFO - Closing down clientserver connection
+2024-07-14 23:54:37,719 - INFO - Starting the loan application data fetch and load process.
+2024-07-14 23:54:38,034 - INFO - Status code: 200
+2024-07-14 23:54:48,602 - INFO - Spark session created successfully.
+2024-07-14 23:54:48,797 - ERROR - Error loading data to MySQL: [CANNOT_ACCEPT_OBJECT_IN_TYPE] `DoubleType()` can not accept object `1` in type `int`.
+2024-07-14 23:54:48,812 - INFO - Closing down clientserver connection
+2024-07-15 00:04:28,922 - Status code: 200
+2024-07-15 00:04:32,180 - Error occurred: [CANNOT_ACCEPT_OBJECT_IN_TYPE] `DoubleType()` can not accept object `1` in type `int`.
+2024-07-15 00:04:32,195 - Closing down clientserver connection
+2024-07-15 00:06:10,117 - Status code: 200
+2024-07-15 00:06:15,028 - Error occurred: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `CoapplicantIncome` cannot be resolved. Did you mean one of the following? [`Application_ID`, `Application_Status`, `Credit_History`, `Dependents`, `Education`, `Gender`, `Income`, `Married`, `Property_Area`, `Self_Employed`].
+2024-07-15 00:06:15,060 - Closing down clientserver connection
+2024-07-15 00:13:20,527 - INFO - Starting the loan application data fetch and load process.
+2024-07-15 00:13:20,969 - INFO - Status code: 200
+2024-07-15 00:13:25,125 - INFO - Spark session created successfully.
+2024-07-15 00:13:25,329 - ERROR - Error loading data to MySQL: [CANNOT_ACCEPT_OBJECT_IN_TYPE] `DoubleType()` can not accept object `1` in type `int`.
+2024-07-15 00:13:25,346 - INFO - Closing down clientserver connection
+2024-07-15 00:15:14,980 - INFO - Starting the loan application data fetch and load process.
+2024-07-15 00:15:15,250 - INFO - Status code: 200
+2024-07-15 00:15:18,458 - ERROR - Error loading data to MySQL: [CANNOT_ACCEPT_OBJECT_IN_TYPE] `DoubleType()` can not accept object `1` in type `int`.
+2024-07-15 00:15:18,489 - INFO - Closing down clientserver connection
+2024-07-15 00:20:15,162 - INFO - Starting the loan application data fetch and load process.
+2024-07-15 00:20:15,557 - INFO - Status code: 200
+2024-07-15 00:20:18,646 - ERROR - Error loading data to MySQL: [CANNOT_ACCEPT_OBJECT_IN_TYPE] `IntegerType()` can not accept object `0` in type `str`.
+2024-07-15 00:20:18,677 - INFO - Closing down clientserver connection
+2024-07-15 00:22:35,312 - INFO - Starting the loan application data fetch and load process.
+2024-07-15 00:22:35,581 - INFO - Status code: 200
+2024-07-15 00:22:38,757 - ERROR - Error loading data to MySQL: [CANNOT_ACCEPT_OBJECT_IN_TYPE] `BooleanType()` can not accept object `Y` in type `str`.
+2024-07-15 00:22:38,773 - INFO - Closing down clientserver connection
+2024-07-15 00:23:49,549 - INFO - Starting the loan application data fetch and load process.
+2024-07-15 00:23:49,800 - INFO - Status code: 200
+2024-07-15 00:24:02,556 - INFO - Data loaded successfully to MySQL database.
+2024-07-15 00:24:02,593 - INFO - Closing down clientserver connection
+2024-07-15 00:35:59,338 - INFO - Starting the loan application data fetch and load process.
+2024-07-15 00:35:59,701 - INFO - Status code: 200
+2024-07-15 00:36:11,928 - INFO - Data loaded successfully to MySQL database.
+2024-07-15 00:36:11,960 - INFO - Closing down clientserver connection
