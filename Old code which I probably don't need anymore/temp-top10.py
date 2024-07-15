@@ -5,7 +5,7 @@ from mysql.connector import Error
 import config  # Import your MySQL credentials from config.py
 
 # Function to connect to MySQL and fetch transaction data
-def fetch_highest_transaction_count():
+def fetch_top_10_states_with_highest_customers():
     try:
         # Connect to MySQL
         connection = mysql.connector.connect(
@@ -18,21 +18,23 @@ def fetch_highest_transaction_count():
         if connection.is_connected():
             cursor = connection.cursor()
 
-            # Query to fetch transaction type and count
+            # Query to fetch top 10 states with highest number of customers
             query = '''
-                    SELECT TRANSACTION_TYPE, COUNT(*) AS TRANSACTION_COUNT
-                    FROM cdw_sapp_credit_card
-                    GROUP BY TRANSACTION_TYPE
+                    SELECT CUST_STATE, COUNT(*) AS CUSTOMER_COUNT
+                    FROM cdw_sapp_customer
+                    GROUP BY CUST_STATE
+                    ORDER BY CUSTOMER_COUNT DESC
+                    LIMIT 10
                     '''
 
             cursor.execute(query)
             records = cursor.fetchall()
 
             # Create a DataFrame for better manipulation
-            df = pd.DataFrame(records, columns=['TRANSACTION_TYPE', 'TRANSACTION_COUNT'])
+            df = pd.DataFrame(records, columns=['CUST_STATE', 'CUSTOMER_COUNT'])
 
-            # Sort DataFrame in descending order for display
-            df_sorted = df.sort_values(by='TRANSACTION_COUNT', ascending=False)
+            # Sort DataFrame by customer count for printing
+            df_sorted = df.sort_values(by='CUSTOMER_COUNT', ascending=False)
 
             return df_sorted, df  # Return both sorted and unsorted DataFrames
 
@@ -45,40 +47,37 @@ def fetch_highest_transaction_count():
             connection.close()
 
 # Function to create and save visualization
-def create_and_save_plot(df):
+def create_and_save_top_10_states_plot(df):
     plt.figure(figsize=(10, 6))
 
-    # Plotting the unsorted DataFrame for visualization
-    plt.bar(df['TRANSACTION_TYPE'], df['TRANSACTION_COUNT'])
-    plt.xlabel('Transaction Type')
-    plt.ylabel('Transaction Count')
-    plt.title('Transaction Count by Transaction Type')
+    # Sort DataFrame by state alphabetically for plotting
+    df_sorted_plot = df.sort_values(by='CUST_STATE')
+
+    plt.bar(df_sorted_plot['CUST_STATE'], df_sorted_plot['CUSTOMER_COUNT'])
+    plt.xlabel('Customer State')
+    plt.ylabel('Number of Customers')
+    plt.title('Top 10 States with Highest Number of Customers (Sorted by State)')
     plt.xticks(rotation=45)
-    plt.ylim(6500, 6900)  # Set y-axis limits to reflect the range
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('transaction_count_by_type.png')
+    plt.savefig('top_10_states_customers.png')
 
     # Display the plot (optional)
     plt.show()
 
-    # # Print the sorted DataFrame
-    # print("\nSorted DataFrame:")
-    # print(df_sorted)
-
 # Main function to orchestrate the process
 def main():
-    # Fetch transaction data
-    df_sorted, df = fetch_highest_transaction_count()
+    # Fetch top 10 states with highest number of customers
+    df_sorted, df = fetch_top_10_states_with_highest_customers()
 
     if df_sorted is not None:
         # Display the fetched data (optional)
-        print("Fetched Highest Transaction Count Data:")
-        print(df_sorted)
+        print("Sorted DataFrame (Top 10 States with Highest Number of Customers):")
+        print(df_sorted.to_string(index=False))
 
-        # Create and save the plot
-        create_and_save_plot(df)
+        # Create and save the plot using the unsorted DataFrame
+        create_and_save_top_10_states_plot(df)
     else:
         print("No data fetched from the database.")
 
