@@ -115,3 +115,29 @@
 2024-07-13 23:01:02,999 - Data transformation for Customer successful at 2024-07-13 23:01:02
 2024-07-13 23:01:03,827 - Data loaded into MySQL table CDW_SAPP_CUSTOMER successful at 2024-07-13 23:01:03.
 2024-07-13 23:01:03,859 - Closing down clientserver connection
+2024-07-15 19:56:52,228 - MySQL connection is established at 2024-07-15 19:56:52
+2024-07-15 19:56:52,235 - Database 'creditcard_capstone' already exists at 2024-07-15 19:56:52
+2024-07-15 19:56:52,235 - MySQL connection is closed at 2024-07-15 19:56:52
+2024-07-15 19:56:56,306 - Data extraction from CDW_SAPP_BRANCH successful at 2024-07-15 19:56:56.
+2024-07-15 19:56:56,431 - Data transformation for CDW_SAPP_BRANCH successful at 2024-07-15 19:56:56.
+2024-07-15 19:56:58,996 - Data loaded into MySQL table CDW_SAPP_BRANCH successful at 2024-07-15 19:56:58.
+2024-07-15 19:56:59,012 - Data extraction from data/cdw_sapp_credit.json successful at 2024-07-15 19:56:59
+2024-07-15 19:56:59,059 - Data transformation for credit card transactions successful at 2024-07-15 19:56:59
+2024-07-15 19:57:04,497 - Data loaded into MySQL table CDW_SAPP_CREDIT_CARD successful at 2024-07-15 19:57:04.
+2024-07-15 19:57:04,529 - Data extraction from data/cdw_sapp_customer.json successful at 2024-07-15 19:57:04
+2024-07-15 19:57:04,591 - Data transformation for Customer successful at 2024-07-15 19:57:04
+2024-07-15 19:57:05,155 - Data loaded into MySQL table CDW_SAPP_CUSTOMER successful at 2024-07-15 19:57:05.
+2024-07-15 19:57:05,171 - Closing down clientserver connection
+2024-07-15 20:22:51,448 - MySQL connection is established at 2024-07-15 20:22:51
+2024-07-15 20:22:51,448 - Database 'creditcard_capstone' already exists at 2024-07-15 20:22:51
+2024-07-15 20:22:51,448 - MySQL connection is closed at 2024-07-15 20:22:51
+2024-07-15 20:22:55,597 - Data extraction from CDW_SAPP_BRANCH successful at 2024-07-15 20:22:55.
+2024-07-15 20:22:55,722 - Data transformation for CDW_SAPP_BRANCH successful at 2024-07-15 20:22:55.
+2024-07-15 20:22:58,311 - Data loaded into MySQL table CDW_SAPP_BRANCH successful at 2024-07-15 20:22:58.
+2024-07-15 20:22:58,326 - Data extraction from data/cdw_sapp_credit.json successful at 2024-07-15 20:22:58
+2024-07-15 20:22:58,373 - Data transformation for credit card transactions successful at 2024-07-15 20:22:58
+2024-07-15 20:23:03,806 - Data loaded into MySQL table CDW_SAPP_CREDIT_CARD successful at 2024-07-15 20:23:03.
+2024-07-15 20:23:03,837 - Data extraction from data/cdw_sapp_customer.json successful at 2024-07-15 20:23:03
+2024-07-15 20:23:03,900 - Data transformation for Customer successful at 2024-07-15 20:23:03
+2024-07-15 20:23:04,400 - Data loaded into MySQL table CDW_SAPP_CUSTOMER successful at 2024-07-15 20:23:04.
+2024-07-15 20:23:04,400 - Closing down clientserver connection

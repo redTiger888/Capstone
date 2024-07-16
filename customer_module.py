@@ -62,6 +62,13 @@ def is_customer_valid(first_name, last_name, zip_code, last_4_cc, spark):
             .load()
 
         if not df.isEmpty():
+            print()
+            print("Customer Found!")
+            print(f"Name: {df.select('FIRST_NAME').first()[0]} {df.select('LAST_NAME').first()[0]}")
+            print(f"Address: {df.select('FULL_STREET_ADDRESS').first()[0]}, {df.select('CUST_CITY').first()[0]}, {df.select('CUST_STATE').first()[0]} {df.select('CUST_ZIP').first()[0]}")
+            print(f"Phone: {df.select('CUST_PHONE').first()[0]}")
+            print(f"Email: {df.select('CUST_EMAIL').first()[0]}")
+            print()
             return True, df  # Return True and the DataFrame with matching records
         else:
             return False, None  # Return False and None if no records found
@@ -102,13 +109,13 @@ def update_customer_in_db(old_df, modified_df):
             #     raise ValueError("DataFrame must contain exactly one record for modifying account details.")
             
             # Fetch the new and old first names from the dataframes
-            old_df.show(5)
+            # old_df.show(5)
             old_fn = old_df.select("FIRST_NAME").first()[0]
             old_ln = old_df.select("LAST_NAME").first()[0]
             old_zp = old_df.select("CUST_ZIP").first()[0]
             old_cc = old_df.select("CREDIT_CARD_NO").first()[0]
 
-            modified_df.show(5)
+            # modified_df.show(5)
             # Convert FIRST_NAME to Title Case
             modified_df = modified_df.withColumn("FIRST_NAME", initcap(modified_df["FIRST_NAME"]))
             new_fn = modified_df.select("FIRST_NAME").first()[0]
@@ -134,8 +141,8 @@ def update_customer_in_db(old_df, modified_df):
             modified_df = modified_df.withColumn("LAST_UPDATED", current_timestamp())
             now = modified_df.select("LAST_UPDATED").first()[0]
 
-            print(old_fn)
-            print(new_fn)
+            # print(old_fn)
+            # print(new_fn)
             # SQL query to execute
             update_query = f"UPDATE {table_name} " \
                         f"SET FIRST_NAME = '{new_fn}', MIDDLE_NAME = '{new_mn}', LAST_NAME = '{new_ln}', " \
@@ -147,7 +154,7 @@ def update_customer_in_db(old_df, modified_df):
                             f"LAST_NAME = '{old_ln}' AND CUST_ZIP = '{old_zp}' AND "\
                             f"CREDIT_CARD_NO = '{old_cc}' "
             
-            print(update_query)
+            # print(update_query)
 
             # Execute the update query with parameters
             cursor.execute(update_query)
@@ -157,6 +164,8 @@ def update_customer_in_db(old_df, modified_df):
 
             # Log successful update
             logging.info(f"Customer details for {new_fn} modified successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"Customer details for {new_fn} {new_ln} zip: {new_zp} modified successfully!")
+            print()
 
     except mysql.connector.Error as err:
         # Handle MySQL errors for modify_account_details
@@ -192,10 +201,10 @@ def generate_monthly_bill(df, month, year, spark):
         print("Customer DataFrame is empty or None.")
         return None
 
-    if df is not None:
-        df.show(truncate=False)
+    # if df is not None:
+    #     df.show(truncate=False)
 
-    dbtable_query = f"(SELECT * FROM cdw_sapp_credit_card cc JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO WHERE cust.FIRST_NAME = '{first_name}' AND cust.LAST_NAME = '{last_name}' AND cust.CUST_ZIP = '{zip_code}' AND cc.CUST_CC_NO = '{cc_no}' AND cc.month = {month} AND cc.year = {year}) AS monthly_bill"
+    dbtable_query = f"(SELECT TRANSACTION_TYPE, TRANSACTION_VALUE, BRANCH_CODE, TIMEID FROM cdw_sapp_credit_card cc JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO WHERE cust.FIRST_NAME = '{first_name}' AND cust.LAST_NAME = '{last_name}' AND cust.CUST_ZIP = '{zip_code}' AND cc.CUST_CC_NO = '{cc_no}' AND cc.month = {month} AND cc.year = {year}) AS monthly_bill"
 
     user = config.user
     password = config.password
@@ -207,6 +216,7 @@ def generate_monthly_bill(df, month, year, spark):
             .option("user", user) \
             .option("password", password) \
             .load()
+        print()
         print(f"Printing Transaction details for {first_name} {last_name} for month: {month} and year: {year}")
         bill_df.show()
         # Logging successful generation of monthly bill with timestamp
@@ -223,14 +233,22 @@ def generate_monthly_bill(df, month, year, spark):
 
 def capture_customer_modifications(df):
     old_df = df.select("FIRST_NAME", "LAST_NAME", "CUST_ZIP", "CREDIT_CARD_NO")
-    old_df.show()
+    # old_df.show()
+    print("Current Data for Customer: ")
+    print(f"Name: {df.select('FIRST_NAME').first()[0]} {df.select('MIDDLE_NAME').first()[0]} {df.select('LAST_NAME').first()[0]}")
+    print(f"Address:  {df.select('FULL_STREET_ADDRESS').first()[0]}, {df.select('CUST_CITY').first()[0]}, {df.select('CUST_STATE').first()[0]} {df.select('CUST_ZIP').first()[0]}")
+    print(f"Country: {df.select('CUST_COUNTRY').first()[0]}")
+    print(f"Phone: {df.select('CUST_PHONE').first()[0]}")
+    print(f"Email: {df.select('CUST_EMAIL').first()[0]}")
+    print(f"Last Updated: {df.select('LAST_UPDATED').first()[0]}")
+
     while True:
         print("\n--- Modify Customer Details ---")
         print("Select the field you want to modify:")
         print("1. First Name")
         print("2. Middle Name")
         print("3. Last Name")
-        print("4. Apartment Number")
+        print("4. Door Number")
         print("5. Street Name")
         print("6. City")
         print("7. State")
@@ -252,7 +270,7 @@ def capture_customer_modifications(df):
             new_value = input("Enter new Last Name: ").strip()
             df = df.withColumn("LAST_NAME", initcap(lit(new_value)))
         elif choice == '4':
-            new_value = input("Enter new Apartment Number: ").strip()
+            new_value = input("Enter new Door Number: ").strip()
             df = df.withColumn("APT_NO", lit(new_value))
             df = df.withColumn("FULL_STREET_ADDRESS", concat(col("APT_NO"), lit(", "), col("STREET_NAME")).cast(StringType()))
         elif choice == '5':
@@ -263,6 +281,7 @@ def capture_customer_modifications(df):
             new_value = input("Enter new City: ").strip()
             df = df.withColumn("CUST_CITY", lit(new_value))
         elif choice == '7':
+            new_value = input("Enter new State: ").strip()
             if len(new_value) == 2 and new_value.isalpha():
                 df = df.withColumn("CUST_STATE", lit(new_value))
             else:
@@ -291,10 +310,23 @@ def capture_customer_modifications(df):
 
     modified_df = df.select("FIRST_NAME", "MIDDLE_NAME", "LAST_NAME", "APT_NO", "STREET_NAME", "CUST_CITY", "CUST_STATE",
                             "CUST_COUNTRY", "CUST_ZIP", "CUST_PHONE", "CUST_EMAIL", "FULL_STREET_ADDRESS", "LAST_UPDATED")
-    old_df.show()
-    modified_df.show()
 
-    return old_df, modified_df
+    print()
+    print("Updated Data for Customer: ")
+    print(f"Name: {modified_df.select('FIRST_NAME').first()[0]} {modified_df.select('MIDDLE_NAME').first()[0]} {modified_df.select('LAST_NAME').first()[0]}")
+    print(f"Address:  {modified_df.select('FULL_STREET_ADDRESS').first()[0]}, {modified_df.select('CUST_CITY').first()[0]}, {modified_df.select('CUST_STATE').first()[0]} {modified_df.select('CUST_ZIP').first()[0]}")
+    print(f"Country: {modified_df.select('CUST_COUNTRY').first()[0]}")
+    print(f"Phone: {modified_df.select('CUST_PHONE').first()[0]}")
+    print(f"Email: {modified_df.select('CUST_EMAIL').first()[0]}")
+    print(f"Last Updated: {modified_df.select('LAST_UPDATED').first()[0]}")
+
+    confirm = input("Do you want to confirm these changes? (yes/no): ").strip().lower()
+    if confirm == 'yes':
+        print("Changes confirmed.")
+        return old_df, modified_df
+    else:
+        print("Modifications discarded. Please modify again.\n")
+        capture_customer_modifications(df)
 
 def login(spark):
 
@@ -311,7 +343,7 @@ def login(spark):
             first_name, last_name, zip_code, last_4_cc = prompt_for_customer_details()
             is_valid, df = is_customer_valid(first_name, last_name, zip_code, last_4_cc, spark)
             if is_valid:
-                print("Login successful. Welcome to the Customer Module.")
+                print("How can we help this customer? ")
                 return df  # Return the DataFrame with customer details
             else:
                 print("Invalid customer details. Please try again.")
@@ -336,11 +368,21 @@ def customer_module(df, spark):
 
         if choice == '1':
             print("\n--- Existing Customer Details ---")
-            df.show()
+            print(f"Name: {df.select('FIRST_NAME').first()[0]} {df.select('MIDDLE_NAME').first()[0]} {df.select('LAST_NAME').first()[0]}")
+            print(f"SSN: {df.select('SSN').first()[0]}")
+            print(f"Credit Card No: {df.select('CREDIT_CARD_NO').first()[0]}")
+            print(f"Address:  {df.select('FULL_STREET_ADDRESS').first()[0]}, {df.select('CUST_CITY').first()[0]}, {df.select('CUST_STATE').first()[0]} {df.select('CUST_ZIP').first()[0]}")
+            print(f"Country: {df.select('CUST_COUNTRY').first()[0]}")
+            print(f"Phone: {df.select('CUST_PHONE').first()[0]}")
+            print(f"Email: {df.select('CUST_EMAIL').first()[0]}")
+            print(f"Last Updated: {df.select('LAST_UPDATED').first()[0]}")
+
         elif choice == '2':
             print("\n--- Modify Customer Details ---")
             old_df, new_df = capture_customer_modifications(df)
             update_customer_in_db(old_df, new_df)
+            print("Exiting the Customer Details Module, please re-login with updated credentials")
+            choice == '5'
         elif choice == '3':
             print("\n--- Generate Monthly Bill ---")
             month = int(input("Enter Month (1-12): ").strip())
@@ -364,7 +406,7 @@ def view_transactions_between_dates(df, start_date, end_date, spark):
     zip_code = df.select("CUST_ZIP").first()[0]
     cc_no = df.select("CREDIT_CARD_NO").first()[0]
     
-    query = f"(SELECT * FROM cdw_sapp_credit_card cc " \
+    query = f"(SELECT TRANSACTION_TYPE, TRANSACTION_VALUE, BRANCH_CODE, TIMEID FROM cdw_sapp_credit_card cc " \
             f"JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO " \
             f"WHERE cust.FIRST_NAME = '{first_name}' AND cust.LAST_NAME = '{last_name}' " \
             f"AND cust.CUST_ZIP = '{zip_code}' AND cust.CREDIT_CARD_NO = '{cc_no}' " \
@@ -372,7 +414,7 @@ def view_transactions_between_dates(df, start_date, end_date, spark):
             f"AND cc.TIMEID <= '{end_date}' " \
             f"order by CC.TIMEID DESC) AS transactions"
     
-    print(query)
+    # print(query)
 
     user = config.user
     password = config.password
@@ -385,11 +427,22 @@ def view_transactions_between_dates(df, start_date, end_date, spark):
             .option("password", password) \
             .load()
 
-        print(transactions_df.count())
-        transactions_df.show(truncate = False)
+        if transactions_df.count() == 0:
+            print(f"No transactions found for {first_name} {last_name} from {start_date} to {end_date}.")
+            # Log the absence of transactions
+            logging.warning(f"No transactions found for {first_name} {last_name} from {start_date} to {end_date} at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-        # Logging successful retrieval of transactions
-        logging.info(f"Transactions retrieved successfully for {first_name} {last_name} from {start_date} to {end_date} at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        else:
+            print()
+            print(f"Printing Transaction details for {first_name} {last_name} from: {start_date} to: {end_date}")
+           # Count the number of records in the DataFrame
+            num_records = transactions_df.count()
+
+            # Show all records without truncating
+            transactions_df.show(num_records, truncate=False)
+
+            # Logging successful retrieval of transactions
+            logging.info(f"Transactions retrieved successfully for {first_name} {last_name} from {start_date} to {end_date} at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     except Exception as e:
         print(f"Error retrieving transactions: {str(e)}")

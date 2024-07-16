@@ -104,8 +104,6 @@ if __name__ == "__main__":
         .appName('Query Transactions') \
         .getOrCreate()
 
-    try:
-        get_transaction_detail(spark)
-    finally:
-        # Stop Spark session
-        spark.stop()
+    get_transaction_detail(spark)
+    spark.stop()
+  

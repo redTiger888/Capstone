@@ -208,3 +208,120 @@
 2024-07-14 20:00:53,077 - INFO - Transactions retrieved successfully for Alec Hooper from 20150601 to 20180331 at 2024-07-14 20:00:53
 2024-07-14 20:01:15,601 - INFO - Monthly bill generated successfully at 2024-07-14 20:01:15.
 2024-07-14 20:03:07,138 - INFO - Closing down clientserver connection
+2024-07-15 19:59:23,426 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-15 19:59:23
+2024-07-15 19:59:25,371 - INFO - Customer details for Alec modified successfully at 2024-07-15 19:59:25
+2024-07-15 19:59:25,371 - INFO - MySQL connection is closed at 2024-07-15 19:59:25
+2024-07-15 19:59:43,910 - INFO - Monthly bill generated successfully at 2024-07-15 19:59:43.
+2024-07-15 20:00:11,082 - INFO - Transactions retrieved successfully for Alec Hooper from 20000101 to 20151231 at 2024-07-15 20:00:11
+2024-07-15 20:00:26,240 - INFO - Transactions retrieved successfully for Alec Hooper from 20000101 to 20240101 at 2024-07-15 20:00:26
+2024-07-15 20:00:31,370 - INFO - Closing down clientserver connection
+2024-07-15 20:28:05,037 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-15 20:28:05
+2024-07-15 20:28:06,806 - INFO - Customer details for Alexa modified successfully at 2024-07-15 20:28:06
+2024-07-15 20:28:06,806 - INFO - MySQL connection is closed at 2024-07-15 20:28:06
+2024-07-15 20:28:07,111 - INFO - Closing down clientserver connection
+2024-07-15 20:38:57,303 - INFO - Monthly bill generated successfully at 2024-07-15 20:38:57.
+2024-07-15 20:39:34,393 - INFO - Transactions retrieved successfully for Wilber Dunham from 20000101 to 20190101 at 2024-07-15 20:39:34
+2024-07-15 20:39:44,762 - INFO - Closing down clientserver connection
+2024-07-15 20:45:01,616 - INFO - Closing down clientserver connection
+2024-07-15 20:52:09,759 - INFO - Closing down clientserver connection
+2024-07-15 20:52:33,954 - ERROR - Error: Customer not found in database: 'DataFrame' object has no attribute 'iloc' at 2024-07-15 20:52:33.
+2024-07-15 20:54:36,387 - INFO - Closing down clientserver connection
+2024-07-15 20:55:03,826 - ERROR - Error: Customer not found in database: name 'data' is not defined at 2024-07-15 20:55:03.
+2024-07-15 20:55:51,525 - INFO - Closing down clientserver connection
+2024-07-15 20:57:31,879 - INFO - Closing down clientserver connection
+2024-07-15 21:04:38,828 - INFO - Closing down clientserver connection
+2024-07-15 21:06:12,321 - INFO - Closing down clientserver connection
+2024-07-15 21:06:34,759 - ERROR - Error: Customer not found in database: An error occurred while calling o31.isEmpty.
+: java.lang.IllegalStateException: SparkContext has been shutdown
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2390)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:530)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+	at org.apache.spark.sql.Dataset.$anonfun$isEmpty$1(Dataset.scala:654)
+	at org.apache.spark.sql.Dataset.$anonfun$isEmpty$1$adapted(Dataset.scala:653)
+	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4322)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4320)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4320)
+	at org.apache.spark.sql.Dataset.isEmpty(Dataset.scala:653)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+ at 2024-07-15 21:06:34.
+2024-07-15 21:07:09,046 - ERROR - Error: Customer not found in database: An error occurred while calling o39.isEmpty.
+: java.lang.IllegalStateException: SparkContext has been shutdown
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2390)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2419)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2438)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:530)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+	at org.apache.spark.sql.Dataset.$anonfun$isEmpty$1(Dataset.scala:654)
+	at org.apache.spark.sql.Dataset.$anonfun$isEmpty$1$adapted(Dataset.scala:653)
+	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4322)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4320)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4320)
+	at org.apache.spark.sql.Dataset.isEmpty(Dataset.scala:653)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+ at 2024-07-15 21:07:09.
+2024-07-15 21:07:11,831 - INFO - Closing down clientserver connection
+2024-07-15 21:07:32,516 - INFO - Closing down clientserver connection
+2024-07-15 21:33:57,612 - INFO - Closing down clientserver connection
+2024-07-15 21:34:22,249 - INFO - Closing down clientserver connection
+2024-07-15 21:36:44,572 - INFO - Closing down clientserver connection
+2024-07-15 21:42:03,102 - INFO - Closing down clientserver connection
+2024-07-15 21:52:58,086 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-15 21:52:58
+2024-07-15 21:52:59,651 - INFO - Customer details for Wilber modified successfully at 2024-07-15 21:52:59
+2024-07-15 21:52:59,651 - INFO - MySQL connection is closed at 2024-07-15 21:52:59
+2024-07-15 21:52:59,785 - INFO - Closing down clientserver connection
+2024-07-15 21:54:21,138 - INFO - Closing down clientserver connection
+2024-07-15 22:02:38,471 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-15 22:02:38
+2024-07-15 22:02:40,819 - INFO - Customer details for Wilma modified successfully at 2024-07-15 22:02:40
+2024-07-15 22:02:40,819 - INFO - MySQL connection is closed at 2024-07-15 22:02:40
+2024-07-15 22:02:40,926 - INFO - Closing down clientserver connection
+2024-07-15 22:08:29,557 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-15 22:08:29
+2024-07-15 22:08:31,028 - INFO - Customer details for Wilma modified successfully at 2024-07-15 22:08:31
+2024-07-15 22:08:31,028 - INFO - MySQL connection is closed at 2024-07-15 22:08:31
+2024-07-15 22:08:31,231 - INFO - Closing down clientserver connection
+2024-07-15 22:10:29,272 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-15 22:10:29
+2024-07-15 22:10:30,773 - INFO - Customer details for Wilma modified successfully at 2024-07-15 22:10:30
+2024-07-15 22:10:30,773 - INFO - MySQL connection is closed at 2024-07-15 22:10:30
+2024-07-15 22:10:47,292 - INFO - Monthly bill generated successfully at 2024-07-15 22:10:47.
+2024-07-15 22:24:32,955 - INFO - Monthly bill generated successfully at 2024-07-15 22:24:32.
+2024-07-15 22:24:36,504 - INFO - Closing down clientserver connection
+2024-07-15 22:25:41,673 - INFO - Monthly bill generated successfully at 2024-07-15 22:25:41.
+2024-07-15 22:26:55,568 - INFO - Closing down clientserver connection
+2024-07-15 22:27:25,740 - INFO - Monthly bill generated successfully at 2024-07-15 22:27:25.
+2024-07-15 22:28:10,905 - INFO - Transactions retrieved successfully for Wilma Durham from 20000101 to 20190101 at 2024-07-15 22:28:10
+2024-07-15 22:30:50,855 - INFO - Closing down clientserver connection
+2024-07-15 22:32:00,184 - INFO - Transactions retrieved successfully for Wilma Durham from 20000101 to 20190101 at 2024-07-15 22:32:00
+2024-07-15 22:33:57,262 - INFO - Closing down clientserver connection
+2024-07-15 22:34:39,467 - INFO - Transactions retrieved successfully for Wilma Durham from 20000101 to 20190101 at 2024-07-15 22:34:39
+2024-07-15 22:35:49,086 - INFO - Closing down clientserver connection
