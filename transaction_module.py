@@ -1,13 +1,15 @@
 # Importing the Libraries
 import warnings
 import logging
-import pyspark
+
+from prettytable import PrettyTable
+
 from pyspark.sql import SparkSession
 from datetime import datetime
 import config  # Contains user and password for MySQL
 
 warnings.filterwarnings("ignore") # Suppress specific warnings
-logging.basicConfig(level=logging.WARN) # Set the logging level
+# logging.basicConfig(level=logging.WARN) # Set the logging level
 
 # Configure logging
 logging.basicConfig(filename='transaction_module.log', format='%(asctime)s - %(message)s', level=logging.INFO)
@@ -15,7 +17,7 @@ logging.basicConfig(filename='transaction_module.log', format='%(asctime)s - %(m
 # Function to Prompt user to enter Zip code and verify format
 def get_zipcode():
     while True:
-        zip_code = input("Enter zip code (for example: 01824)").strip()
+        zip_code = input("Enter zip code (for example: 01824): ").strip()
 
         # Verify zip code has 5 digits
         if zip_code.isdigit() and len(zip_code) == 5:
@@ -71,14 +73,13 @@ def query_transactions(zip_code, month, year, spark):
             .load()
 
          # Logging successful query of transactions with timestamp
-        logging.info("Query ran successful at %s.", {dbtable_query}, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        logging.info("Query ran successfully: %s at %s.", dbtable_query, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
         return df
 
     except Exception as e:
         print(f"Error querying data: {str(e)}")
-        # Logging successful query of transactions with timestamp
-        logging.error(f"Error querying data: {str(e)} at %s.", {dbtable_query}, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        logging.error("Error querying data: %s at %s.", str(e), datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
         return None
 
@@ -87,25 +88,38 @@ def query_transactions(zip_code, month, year, spark):
     # Calls query_transactions() to fetch data based on user input
     # Displays the retrieved data if successful; otherwise, shows an error message.
 def get_transaction_detail(spark):
+    print("Welcome to the Transactions Details Module")
+    print("This module lists all transactions of ALL customers for the entered zip code in the specified month and year")
     zip_code = get_zipcode() 
     month, year = get_month_year() 
 
     df = query_transactions(zip_code, month, year, spark)
 
-    if df is not None:
-        df.show(df.count(), truncate=False)
+    # if df is not None:
+    #     df.show(df.count(), truncate=False)
+    # else:
+    #     print("No data retrieved or error occurred.")
+
+    print()
+    print(f"All transactions for zip: {zip_code} in Month: {month} and Year: {year}")
+    if df is not None and df.count() > 0:
+        pt = PrettyTable(['Date', 'Type', 'Amount', 'First Name', 'Last Name'])
+        for row in df.collect():
+            pt.add_row([row['Date'], row['Type'], row['Amount'], row['First Name'], row['Last Name']])
+        print(pt)
     else:
         print("No data retrieved or error occurred.")
 
-# Main 
+
+# Main
 if __name__ == "__main__":
     # Creating Spark Session
     spark = SparkSession.builder \
         .appName('Query Transactions') \
         .getOrCreate()
 
-    try:
-        get_transaction_detail(spark)
-    finally:
-        # Stop Spark session
-        spark.stop()
+    # Set logging level to ERROR
+    spark.sparkContext.setLogLevel("ERROR")
+
+    get_transaction_detail(spark)
+    spark.stop()

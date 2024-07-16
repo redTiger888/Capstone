@@ -1,0 +1,242 @@
+2024-07-15 17:05:52,831 - Closing down clientserver connection
+2024-07-15 17:08:43,341 - Closing down clientserver connection
+2024-07-15 17:10:28,592 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:10:28.
+2024-07-15 17:10:31,196 - Closing down clientserver connection
+2024-07-15 17:11:56,565 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:11:56.
+2024-07-15 17:11:59,620 - Closing down clientserver connection
+2024-07-15 17:16:19,509 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:16:19.
+2024-07-15 17:16:22,284 - Closing down clientserver connection
+2024-07-15 17:17:18,849 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:17:18.
+2024-07-15 17:17:21,919 - Closing down clientserver connection
+2024-07-15 17:19:35,597 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:19:35.
+2024-07-15 17:19:38,456 - Closing down clientserver connection
+2024-07-15 17:22:52,193 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:22:52.
+2024-07-15 17:23:00,220 - Closing down clientserver connection
+2024-07-15 17:24:27,893 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:24:27.
+2024-07-15 17:24:31,897 - Closing down clientserver connection
+2024-07-15 17:25:37,778 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:25:37.
+2024-07-15 17:25:40,796 - Closing down clientserver connection
+2024-07-15 17:37:41,725 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:37:41.
+2024-07-15 17:37:44,697 - Closing down clientserver connection
+2024-07-15 17:39:50,286 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:39:50.
+2024-07-15 17:39:53,199 - Closing down clientserver connection
+2024-07-15 17:48:00,851 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:48:00.
+2024-07-15 17:48:03,842 - Closing down clientserver connection
+2024-07-15 17:49:03,373 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 17:49:03.
+2024-07-15 17:49:05,953 - Closing down clientserver connection
+2024-07-15 18:25:06,079 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:25:06.
+2024-07-15 18:25:09,043 - Closing down clientserver connection
+2024-07-15 18:27:08,945 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:27:08.
+2024-07-15 18:27:11,599 - Closing down clientserver connection
+2024-07-15 18:31:25,496 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:31:25.
+2024-07-15 18:31:28,190 - Closing down clientserver connection
+2024-07-15 18:32:34,924 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:32:34.
+2024-07-15 18:32:37,693 - Closing down clientserver connection
+2024-07-15 18:44:05,550 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:44:05.
+2024-07-15 18:44:08,975 - Closing down clientserver connection
+2024-07-15 18:45:07,481 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:45:07.
+2024-07-15 18:45:10,385 - Closing down clientserver connection
+2024-07-15 18:45:53,509 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:45:53.
+2024-07-15 18:45:56,094 - Closing down clientserver connection
+2024-07-15 18:47:50,652 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:47:50.
+2024-07-15 18:47:53,640 - Closing down clientserver connection
+2024-07-15 18:48:46,021 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:48:46.
+2024-07-15 18:48:48,601 - Closing down clientserver connection
+2024-07-15 18:50:54,032 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:50:54.
+2024-07-15 18:50:56,679 - Closing down clientserver connection
+2024-07-15 18:52:36,722 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:52:36.
+2024-07-15 18:52:39,521 - Closing down clientserver connection
+2024-07-15 18:53:09,027 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:53:09.
+2024-07-15 18:53:11,570 - Closing down clientserver connection
+2024-07-15 18:54:16,484 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:54:16.
+2024-07-15 18:54:18,967 - Closing down clientserver connection
+2024-07-15 18:59:35,043 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 18:59:35.
+2024-07-15 18:59:36,953 - Closing down clientserver connection
+2024-07-15 19:01:34,299 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 19:01:34.
+2024-07-15 19:01:36,036 - Closing down clientserver connection
+2024-07-15 19:03:33,701 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 19:03:33.
+2024-07-15 19:03:35,748 - Closing down clientserver connection
+2024-07-15 19:05:05,969 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 19:05:05.
+2024-07-15 19:05:08,110 - Closing down clientserver connection
+2024-07-15 19:05:44,117 - Query ran successfully: (SELECT timeid AS Date, TRANSACTION_TYPE AS Type, 
+                                TRANSACTION_VALUE AS Amount, cust.FIRST_NAME AS "First Name", 
+                                cust.LAST_NAME AS "Last Name"
+                    FROM cdw_sapp_credit_card cc
+                    JOIN cdw_sapp_customer cust ON cust.CREDIT_CARD_NO = cc.CUST_CC_NO
+                    WHERE cc.month = 5 AND cc.year = 2018 AND cust_zip = '39120'
+                    ORDER BY day DESC) AS filtered_transactions at 2024-07-15 19:05:44.
+2024-07-15 19:05:46,040 - Closing down clientserver connection
