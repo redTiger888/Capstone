@@ -2,3 +2,7 @@
 2024-07-16 22:22:06,426 - INFO - Status code: 200
 2024-07-16 22:22:19,738 - INFO - Data loaded successfully to MySQL database.
 2024-07-16 22:22:19,754 - INFO - Closing down clientserver connection
+2024-07-16 22:58:50,419 - INFO - Starting the loan application data fetch and load process.
+2024-07-16 22:58:50,922 - INFO - Status code: 200
+2024-07-16 22:59:04,641 - INFO - Data loaded successfully to MySQL database.
+2024-07-16 22:59:04,657 - INFO - Closing down clientserver connection
