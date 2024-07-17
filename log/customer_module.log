@@ -363,3 +363,17 @@
 2024-07-16 19:28:17,299 - INFO - MySQL connection is closed at 2024-07-16 19:28:17
 2024-07-16 19:28:40,556 - INFO - Monthly bill generated successfully at 2024-07-16 19:28:40.
 2024-07-16 19:28:45,334 - INFO - Closing down clientserver connection
+2024-07-16 21:46:09,017 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 21:46:09
+2024-07-16 21:46:10,431 - INFO - Customer details for Kavinbutt modified successfully at 2024-07-16 21:46:10
+2024-07-16 21:46:10,431 - INFO - MySQL connection is closed at 2024-07-16 21:46:10
+2024-07-16 21:46:54,979 - INFO - Closing down clientserver connection
+2024-07-16 21:53:13,952 - INFO - Closing down clientserver connection
+2024-07-16 21:56:01,784 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 21:56:01
+2024-07-16 21:56:03,231 - ERROR - Error connecting to MySQL in modify_account_details: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 't know Anything', FULL_STREET_ADDRESS = '49, I don't know Anything', CUST_CITY =' at line 1
+2024-07-16 21:56:03,231 - INFO - MySQL connection is closed at 2024-07-16 21:56:03
+2024-07-16 21:56:32,953 - INFO - Closing down clientserver connection
+2024-07-16 22:00:47,066 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 22:00:47
+2024-07-16 22:00:48,494 - INFO - Customer details for Kavinbutt modified successfully at 2024-07-16 22:00:48
+2024-07-16 22:00:48,494 - INFO - MySQL connection is closed at 2024-07-16 22:00:48
+2024-07-16 22:00:48,754 - INFO - Closing down clientserver connection
+2024-07-16 22:01:42,560 - INFO - Closing down clientserver connection

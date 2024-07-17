@@ -344,8 +344,6 @@ def capture_customer_modifications(df):
 
 def login(spark):
 
-    print("Welcome to Customer Service Portal")
-
     while True:
         print("\n--- Customer Module ---")
         print("1. Login to Customer Module")
@@ -396,7 +394,7 @@ def customer_module(df, spark):
             old_df, new_df = capture_customer_modifications(df)
             update_customer_in_db(old_df, new_df)
             print("Exiting the Customer Details Module, please re-login with updated credentials")
-            choice == '5'
+            break
         elif choice == '3':
             print("\n--- Generate Monthly Bill ---")
             month = int(input("Enter Month (1-12): ").strip())
