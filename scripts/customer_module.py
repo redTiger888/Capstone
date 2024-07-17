@@ -2,6 +2,7 @@
 import warnings
 import logging
 import mysql.connector
+import re
 from mysql.connector import Error
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, concat, current_timestamp, initcap, lower, col, when, length, lpad
@@ -104,10 +105,6 @@ def update_customer_in_db(old_df, modified_df):
             
             # Log MYSQL connection established
             logging.info(f"MySQL connection is established for MOdifying Customer Details at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-
-            # # Ensure the DataFrame has exactly one row (record)
-            # if len(old_df) != 1:
-            #     raise ValueError("DataFrame must contain exactly one record for modifying account details.")
             
             # Fetch the new and old first names from the dataframes
             # old_df.show(5)
@@ -141,7 +138,7 @@ def update_customer_in_db(old_df, modified_df):
 
             modified_df = modified_df.withColumn("LAST_UPDATED", current_timestamp())
             now = modified_df.select("LAST_UPDATED").first()[0]
-            print (now)
+            # print (now)
 
             # SQL query to execute
             update_query = f"UPDATE {table_name} " \
@@ -299,23 +296,43 @@ def capture_customer_modifications(df):
             df = df.withColumn("CUST_COUNTRY", lit(new_value))
             modified = True
         elif choice == '9':
-            new_value = input("Enter new ZIP Code: ").strip()
-            # Clean and format CUST_ZIP
-            new_value = when(length(lit(new_value)) == 4, lpad(lit(new_value), 5, "0")).otherwise(lit(new_value))
-            df = df.withColumn("CUST_ZIP", new_value)
-            modified = True
+            while True:
+                new_value = input("Enter new ZIP Code: ").strip()
+                if new_value.isdigit() and len(new_value) == 5:
+                    # Clean and format CUST_ZIP
+                    new_value = when(length(lit(new_value)) == 4, lpad(lit(new_value), 5, "0")).otherwise(lit(new_value))
+                    df = df.withColumn("CUST_ZIP", new_value)
+                    modified = True
+                    break
+                else:
+                    print("Invalid ZIP Code. Please enter a 5-digit number.")
+
         elif choice == '10':
-            new_value = input("Enter new Phone Number: ").strip()
-            # Clean and format CUST_PHONE
-            new_value = "(" + new_value[:3] + ")" + new_value[3:6] + "-" + new_value[6:]
-            df = df.withColumn("CUST_PHONE", lit(new_value))
-            modified = True
+            while True:
+                new_value = input("Enter new Phone Number (10 digits): ").strip()
+                if new_value.isdigit() and len(new_value) == 10:
+                    # Clean and format CUST_PHONE
+                    new_value = "(" + new_value[:3] + ")" + new_value[3:6] + "-" + new_value[6:]
+                    df = df.withColumn("CUST_PHONE", lit(new_value))
+                    modified = True
+                    break
+                else:
+                    print("Invalid Phone Number. Please enter a 10-digit number.")
+
         elif choice == '11':
-            new_value = input("Enter new Email Address: ").strip()
-            df = df.withColumn("CUST_EMAIL", lit(new_value))
-            modified = True
+            email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            while True:
+                new_value = input("Enter new Email Address: ").strip()
+                if re.match(email_pattern, new_value):
+                    df = df.withColumn("CUST_EMAIL", lit(new_value))
+                    modified = True
+                    break
+                else:
+                    print("Invalid Email Address. Please enter a valid email (e.g., example@domain.com).")
+
         elif choice == '12':
             if modified:
+                df = df.withColumn("LAST_UPDATED", current_timestamp())
                 modified_df = df.select("FIRST_NAME", "MIDDLE_NAME", "LAST_NAME", "APT_NO", "STREET_NAME", "CUST_CITY", "CUST_STATE",
                             "CUST_COUNTRY", "CUST_ZIP", "CUST_PHONE", "CUST_EMAIL", "FULL_STREET_ADDRESS", "LAST_UPDATED")
                 print()

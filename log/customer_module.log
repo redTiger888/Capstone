@@ -377,3 +377,25 @@
 2024-07-16 22:00:48,494 - INFO - MySQL connection is closed at 2024-07-16 22:00:48
 2024-07-16 22:00:48,754 - INFO - Closing down clientserver connection
 2024-07-16 22:01:42,560 - INFO - Closing down clientserver connection
+2024-07-16 22:06:45,294 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 22:06:45
+2024-07-16 22:06:45,595 - ERROR - Error in modify_account_details: 'NoneType' object has no attribute 'withColumn'
+2024-07-16 22:06:45,595 - INFO - MySQL connection is closed at 2024-07-16 22:06:45
+2024-07-16 22:06:45,841 - INFO - Closing down clientserver connection
+2024-07-16 22:09:12,009 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 22:09:12
+2024-07-16 22:09:13,615 - INFO - Customer details for Kavinbutt modified successfully at 2024-07-16 22:09:13
+2024-07-16 22:09:13,615 - INFO - MySQL connection is closed at 2024-07-16 22:09:13
+2024-07-16 22:09:14,065 - INFO - Closing down clientserver connection
+2024-07-16 22:21:44,600 - INFO - Closing down clientserver connection
+2024-07-16 22:27:44,148 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 22:27:44
+2024-07-16 22:27:44,464 - ERROR - Error in modify_account_details: 'NoneType' object has no attribute 'withColumn'
+2024-07-16 22:27:44,464 - INFO - MySQL connection is closed at 2024-07-16 22:27:44
+2024-07-16 22:27:44,848 - INFO - Closing down clientserver connection
+2024-07-16 22:34:44,041 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 22:34:44
+2024-07-16 22:34:45,411 - INFO - Customer details for Kavinbutt modified successfully at 2024-07-16 22:34:45
+2024-07-16 22:34:45,427 - INFO - MySQL connection is closed at 2024-07-16 22:34:45
+2024-07-16 22:34:45,898 - INFO - Closing down clientserver connection
+2024-07-16 22:51:50,291 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 22:51:50
+2024-07-16 22:51:51,696 - INFO - Customer details for Lavin Beautiful modified successfully at 2024-07-16 22:51:51
+2024-07-16 22:51:51,696 - INFO - MySQL connection is closed at 2024-07-16 22:51:51
+2024-07-16 22:51:51,958 - INFO - Closing down clientserver connection
+2024-07-16 22:55:18,457 - INFO - Closing down clientserver connection
