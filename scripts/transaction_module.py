@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore") # Suppress specific warnings
 logging.basicConfig(level=logging.WARN) # Set the logging level
 
 # Configure logging
-logging.basicConfig(filename='transaction_module.log', format='%(asctime)s - %(message)s', level=logging.INFO)
+logging.basicConfig(filename='log/transaction_module.log', format='%(asctime)s - %(message)s', level=logging.INFO)
 
 # Function to Prompt user to enter Zip code and verify format
 def get_zipcode():
@@ -87,23 +87,26 @@ def query_transactions(zip_code, month, year, spark):
     # Calls query_transactions() to fetch data based on user input
     # Displays the retrieved data if successful; otherwise, shows an error message.
 def get_transaction_detail(spark):
-    zip_code = get_zipcode() 
+
+    zip_code = get_zipcode()
     month, year = get_month_year() 
 
     df = query_transactions(zip_code, month, year, spark)
 
-    if df is not None:
+    if df is not None and df.count() > 0:
         df.show(df.count(), truncate=False)
     else:
         print("No data retrieved or error occurred.")
+    spark.stop()
 
 # Main 
 if __name__ == "__main__":
+    
     # Creating Spark Session
     spark = SparkSession.builder \
         .appName('Query Transactions') \
         .getOrCreate()
+    
+    spark.sparkContext.setLogLevel("ERROR")
 
     get_transaction_detail(spark)
-    spark.stop()
-  

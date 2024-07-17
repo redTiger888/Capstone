@@ -43,3 +43,19 @@
 2024-07-15 20:23:05,150 - INFO - Status code: 200
 2024-07-15 20:23:15,533 - INFO - Data loaded successfully to MySQL database.
 2024-07-15 20:23:15,533 - INFO - Closing down clientserver connection
+2024-07-16 09:43:24,328 - INFO - Starting the loan application data fetch and load process.
+2024-07-16 09:43:27,194 - INFO - Status code: 200
+2024-07-16 09:43:42,648 - INFO - Data loaded successfully to MySQL database.
+2024-07-16 09:43:42,661 - INFO - Closing down clientserver connection
+2024-07-16 09:57:29,448 - INFO - Starting the loan application data fetch and load process.
+2024-07-16 09:57:31,763 - INFO - Status code: 200
+2024-07-16 09:57:46,782 - INFO - Data loaded successfully to MySQL database.
+2024-07-16 09:57:46,792 - INFO - Closing down clientserver connection
+2024-07-16 11:22:16,565 - INFO - Starting the loan application data fetch and load process.
+2024-07-16 11:22:17,134 - INFO - Status code: 200
+2024-07-16 11:22:35,243 - INFO - Data loaded successfully to MySQL database.
+2024-07-16 11:22:35,258 - INFO - Closing down clientserver connection
+2024-07-16 11:43:15,405 - INFO - Starting the loan application data fetch and load process.
+2024-07-16 11:43:15,905 - INFO - Status code: 200
+2024-07-16 11:43:27,929 - INFO - Data loaded successfully to MySQL database.
+2024-07-16 11:43:27,939 - INFO - Closing down clientserver connection

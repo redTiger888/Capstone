@@ -14,7 +14,7 @@ from pyspark.sql.functions import initcap, lower, concat, col, regexp_replace, l
 warnings.filterwarnings("ignore")
 
 # Configure logging
-logging.basicConfig(filename='etl.log', format='%(asctime)s - %(message)s', level=logging.INFO)
+logging.basicConfig(filename='log/etl_credit_card.log', format='%(asctime)s - %(message)s', level=logging.INFO)
 
 # Function for extracting Branch data
 def extract_branch(spark, json_file):

@@ -85,13 +85,13 @@ def create_and_save_approval_percentage_self_employed_plot(approval_percentage):
     sizes = [approval_percentage, 100 - approval_percentage]
     colors = ['#99ff99', '#ffcc99']
 
-    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=110)
     plt.title('Percentage of Approvals for Self-Employed Applicants')
     plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('approval_percentage_self_employed.png')
+    plt.savefig('images/loan/approval_percentage_self_employed.png')
 
     # Display the plot (optional)
     plt.show()
@@ -110,7 +110,7 @@ def create_and_save_rejection_percentage_married_male_plot(rejection_percentage)
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('rejection_percentage_married_male.png')
+    plt.savefig('images/loan/rejection_percentage_married_male.png')
 
     # Display the plot (optional)
     plt.show()
@@ -164,9 +164,11 @@ def fetch_top_three_months_with_highest_transaction_volume():
 
 # Function to create and save visualization for top three months with highest transaction volumes
 def create_and_save_top_three_months_plot(df):
-    plt.figure(figsize=(5, 6))
+    color = plt.cm.Set2(1)  # Choose a single color from the Set2 colormap
 
-    plt.bar(df['Month'], df['Transaction Count'], color='skyblue', width=0.3)
+    plt.figure(figsize=(6, 5))
+
+    plt.bar(df['Month'], df['Transaction Count'], color=color, width=0.3)
     plt.xlabel('Month')
     plt.ylabel('Transaction Count')
     plt.title('Top Three Months with Highest Transaction Volumes')
@@ -174,7 +176,7 @@ def create_and_save_top_three_months_plot(df):
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('top_three_months_transaction_volumes.png')
+    plt.savefig('images/loan/top_three_months_transaction_volumes.png')
 
     # Display the plot (optional)
     plt.show()
@@ -195,12 +197,12 @@ def fetch_top_three_branches_healthcare_transactions():
 
             # Query to fetch top three branches with highest total dollar value of healthcare transactions
             query = '''
-                    SELECT b.BRANCH_NAME AS Branch_Name, b.BRANCH_CITY AS Branch_City, 
+                    SELECT b.BRANCH_CITY AS Branch_City, b.BRANCH_STATE AS Branch_STATE,
                            ROUND(SUM(c.TRANSACTION_VALUE), 2) AS TOTAL_TRANSACTION_VALUE
                     FROM cdw_sapp_credit_card c
                     JOIN cdw_sapp_branch b ON c.BRANCH_CODE = b.BRANCH_CODE
                     WHERE c.TRANSACTION_TYPE = 'Healthcare'
-                    GROUP BY b.BRANCH_NAME, b.BRANCH_CITY
+                    GROUP BY b.BRANCH_CITY, b.BRANCH_STATE
                     ORDER BY TOTAL_TRANSACTION_VALUE DESC
                     LIMIT 3
                     '''
@@ -209,7 +211,7 @@ def fetch_top_three_branches_healthcare_transactions():
             records = cursor.fetchall()
 
             # Create a DataFrame for better manipulation
-            df = pd.DataFrame(records, columns=['Branch Name', 'Branch City', 'Total Transaction Value'])
+            df = pd.DataFrame(records, columns=['Branch City', 'Branch State', 'Total Transaction Value'])
 
             return df  # Return DataFrame with top three branches and their total transaction values
 
@@ -223,18 +225,20 @@ def fetch_top_three_branches_healthcare_transactions():
 
 # Function to create and save visualization for top three branches with highest total dollar value of healthcare transactions
 def create_and_save_top_three_branches_healthcare_plot(df):
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, 4))
 
-    plt.bar(df['Branch Name'] + ', ' + df['Branch City'], df['Total Transaction Value'], color='skyblue')
-    plt.xlabel('Branch')
-    plt.ylabel('Total Transaction Value ($)')
+    colors = ['#66c2a5', '#fc8d62', '#8da0cb'] 
+    plt.barh(df['Branch City'] + ', ' + df['Branch State'], df['Total Transaction Value'], color=colors[:len(df)], height=0.3)
+
+    # plt.barh(df['Branch Name'] + ', ' + df['Branch City'], df['Total Transaction Value'], color='skyblue', width=0.3)
+    plt.xlabel('Total Transaction Value ($)')
+    plt.ylabel('Branch')
     plt.title('Top Three Branches with Highest Total Dollar Value of Healthcare Transactions')
-    plt.xticks(rotation=45)
-    plt.ylim(3900, 4400)  # Set y-axis limits to reflect the range
+    plt.xlim(3900, 4400)  # Set x-axis limits to reflect the range
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('top_three_branches_healthcare_transactions.png')
+    plt.savefig('images/loan/top_three_branches_healthcare_transactions.png')
 
     # Display the plot (optional)
     plt.show()
@@ -242,7 +246,7 @@ def create_and_save_top_three_branches_healthcare_plot(df):
 # Main function to orchestrate the loan module process with menu selection
 def main():
     while True:
-        print("\nMenu:")
+        print("\nLoan Data Analysis Menu:")
         print("1. Percentage of Approvals for Self-Employed Applicants")
         print("2. Percentage of Rejections for Married Male Applicants")
         print("3. Calculate and Plot Top Three Months with Highest Transaction Volumes")

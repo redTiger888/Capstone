@@ -325,3 +325,41 @@
 2024-07-15 22:33:57,262 - INFO - Closing down clientserver connection
 2024-07-15 22:34:39,467 - INFO - Transactions retrieved successfully for Wilma Durham from 20000101 to 20190101 at 2024-07-15 22:34:39
 2024-07-15 22:35:49,086 - INFO - Closing down clientserver connection
+2024-07-16 09:44:56,204 - INFO - Monthly bill generated successfully at 2024-07-16 09:44:56.
+2024-07-16 09:45:09,025 - INFO - Monthly bill generated successfully at 2024-07-16 09:45:09.
+2024-07-16 09:45:20,797 - INFO - Monthly bill generated successfully at 2024-07-16 09:45:20.
+2024-07-16 09:45:34,335 - INFO - Transactions retrieved successfully for Wilber Dunham from 20000101 to 20200101 at 2024-07-16 09:45:34
+2024-07-16 09:45:50,599 - INFO - Closing down clientserver connection
+2024-07-16 15:47:26,285 - INFO - Closing down clientserver connection
+2024-07-16 15:48:06,591 - INFO - Closing down clientserver connection
+2024-07-16 16:18:52,244 - INFO - Closing down clientserver connection
+2024-07-16 16:29:59,024 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 16:29:59
+2024-07-16 16:30:00,660 - INFO - Customer details for Alec modified successfully at 2024-07-16 16:30:00
+2024-07-16 16:30:00,660 - INFO - MySQL connection is closed at 2024-07-16 16:30:00
+2024-07-16 16:30:07,025 - INFO - Closing down clientserver connection
+2024-07-16 16:33:06,413 - INFO - Closing down clientserver connection
+2024-07-16 16:35:18,255 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 16:35:18
+2024-07-16 16:35:19,640 - INFO - Customer details for Alec modified successfully at 2024-07-16 16:35:19
+2024-07-16 16:35:19,655 - INFO - MySQL connection is closed at 2024-07-16 16:35:19
+2024-07-16 16:35:34,758 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 16:35:34
+2024-07-16 16:35:35,058 - ERROR - Error in modify_account_details: 'NoneType' object has no attribute 'withColumn'
+2024-07-16 16:35:35,058 - INFO - MySQL connection is closed at 2024-07-16 16:35:35
+2024-07-16 16:50:35,211 - INFO - Closing down clientserver connection
+2024-07-16 16:51:38,977 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 16:51:38
+2024-07-16 16:51:39,292 - ERROR - Error in modify_account_details: 'NoneType' object has no attribute 'withColumn'
+2024-07-16 16:51:39,292 - INFO - MySQL connection is closed at 2024-07-16 16:51:39
+2024-07-16 16:57:58,607 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 16:57:58
+2024-07-16 16:57:58,940 - ERROR - Error in modify_account_details: 'NoneType' object has no attribute 'withColumn'
+2024-07-16 16:57:58,940 - INFO - MySQL connection is closed at 2024-07-16 16:57:58
+2024-07-16 16:58:12,323 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 16:58:12
+2024-07-16 16:58:12,580 - ERROR - Error in modify_account_details: 'NoneType' object has no attribute 'withColumn'
+2024-07-16 16:58:12,580 - INFO - MySQL connection is closed at 2024-07-16 16:58:12
+2024-07-16 16:58:30,597 - INFO - Monthly bill generated successfully at 2024-07-16 16:58:30.
+2024-07-16 16:58:52,246 - INFO - Closing down clientserver connection
+2024-07-16 19:23:01,273 - INFO - Closing down clientserver connection
+2024-07-16 19:23:31,707 - INFO - Closing down clientserver connection
+2024-07-16 19:28:16,874 - INFO - MySQL connection is established for MOdifying Customer Details at 2024-07-16 19:28:16
+2024-07-16 19:28:17,299 - ERROR - Error in modify_account_details: 'NoneType' object has no attribute 'withColumn'
+2024-07-16 19:28:17,299 - INFO - MySQL connection is closed at 2024-07-16 19:28:17
+2024-07-16 19:28:40,556 - INFO - Monthly bill generated successfully at 2024-07-16 19:28:40.
+2024-07-16 19:28:45,334 - INFO - Closing down clientserver connection

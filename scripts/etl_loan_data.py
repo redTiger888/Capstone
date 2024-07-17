@@ -10,7 +10,7 @@ import config  # Contains user and password for MySQL
 # Suppress all warnings
 warnings.filterwarnings("ignore")
 
-logging.basicConfig(filename='loan_application.log', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
+logging.basicConfig(filename='log/etl_loan_data.log', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 # Function to fetch data from the API endpoint
 def fetch_loan_data():

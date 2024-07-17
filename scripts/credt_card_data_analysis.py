@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import mysql.connector
 from mysql.connector import Error
 import config  # Import your MySQL credentials from config.py
@@ -48,7 +49,16 @@ def fetch_highest_transaction_count():
 def create_and_save_transaction_count_plot(df):
     plt.figure(figsize=(10, 6))
 
-    plt.bar(df['TRANSACTION_TYPE'], df['TRANSACTION_COUNT'])
+    # Determine the number of unique transaction types
+    num_categories = len(df['TRANSACTION_TYPE'].unique())
+
+    # Choose a colormap
+    colormap = plt.get_cmap('tab10', num_categories)
+
+    # Plot the bar chart with dynamically assigned colors
+    bars = plt.bar(df['TRANSACTION_TYPE'], df['TRANSACTION_COUNT'], color=colormap(np.arange(num_categories)))
+
+    # plt.bar(df['TRANSACTION_TYPE'], df['TRANSACTION_COUNT'])
     plt.xlabel('Transaction Type')
     plt.ylabel('Transaction Count')
     plt.title('Transaction Count by Transaction Type')
@@ -57,7 +67,7 @@ def create_and_save_transaction_count_plot(df):
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('highest_transaction_count_by_type.png')
+    plt.savefig('images/credit/highest_transaction_count_by_type.png')
 
     # Display the plot (optional)
     plt.show()
@@ -111,7 +121,19 @@ def create_and_save_top_10_states_plot(df):
     # Sort DataFrame by state alphabetically for plotting
     df_sorted_plot = df.sort_values(by='CUST_STATE')
 
-    plt.bar(df_sorted_plot['CUST_STATE'], df_sorted_plot['CUSTOMER_COUNT'])
+    # Determine the number of unique states
+    num_states = len(df_sorted_plot['CUST_STATE'].unique())
+
+    # Choose a colormap
+    colormap = plt.get_cmap('tab20', num_states)
+
+    # Generate colors for each bar
+    colors = colormap(np.arange(num_states))
+
+    # Plot the bar chart with dynamically assigned colors
+    bars = plt.bar(df_sorted_plot['CUST_STATE'], df_sorted_plot['CUSTOMER_COUNT'], color=colors)
+
+    # plt.bar(df_sorted_plot['CUST_STATE'], df_sorted_plot['CUSTOMER_COUNT'])
     plt.xlabel('Customer State')
     plt.ylabel('Number of Customers')
     plt.title('Top 10 States with Highest Number of Customers (Sorted by State)')
@@ -119,7 +141,7 @@ def create_and_save_top_10_states_plot(df):
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('top_10_states_customers.png')
+    plt.savefig('images/credit/top_10_states_customers.png')
 
     # Display the plot (optional)
     plt.show()
@@ -167,9 +189,13 @@ def fetch_top_10_customers_with_highest_transaction_sum():
 
 # Function to create and save visualization for top 10 customers with highest transaction sums
 def create_and_save_top_10_customers_plot(df):
+    # Define a fun color palette
+    colors = plt.cm.tab10(range(10))
+
     plt.figure(figsize=(10, 6))
 
-    plt.bar(df['Customer Name'], df['Sum of all Transactions'], color='skyblue')
+    # Plot the bar chart with the new color palette
+    plt.bar(df['Customer Name'], df['Sum of all Transactions'], color=colors)
     plt.xlabel('Customer Name')
     plt.ylabel('Total Transaction Sum ($)')
     plt.title('Top 10 Customers with Highest Transaction Sums')
@@ -178,7 +204,7 @@ def create_and_save_top_10_customers_plot(df):
     plt.tight_layout()
 
     # Save the plot as an image file
-    plt.savefig('top_10_customers_transaction_sums.png')
+    plt.savefig('images/credit/top_10_customers_transaction_sums.png')
 
     # Display the plot (optional)
     plt.show()
@@ -186,7 +212,7 @@ def create_and_save_top_10_customers_plot(df):
 # Main function to orchestrate the process with menu selection
 def main():
     while True:
-        print("\nMenu:")
+        print("\nCredit Card Transactions Data Analaysis Menu:")
         print("1. Display Transaction Count by Type")
         print("2. Display Top 10 States with Highest Number of Customers")
         print("3. Top 10 Customers with Highest Transaction Sums")
